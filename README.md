@@ -42,19 +42,19 @@ Como um profissional front-end, você será responsável por desenvolver as prin
 Os layouts abaixo servem de referência visual das funcionalidades, sintam-se livres para segui-las ou implementá-las com base em outras referências, desde que atenda às regras e aos requisitos obrigatórios.
 
 ##### Layouts: Home (catálogo)
-[Layouts: Home (catálogo)](https://i.imgur.com/n54aaQ7.png)
+![Layouts: Home (catálogo)](https://i.imgur.com/n54aaQ7.png)
 
 ##### Layouts: Página do produto
-[Layouts: Página do produto](https://i.imgur.com/BvMMjsR.png)
+![Layouts: Página do produto](https://i.imgur.com/BvMMjsR.png)
 
 ##### Layouts: Indicador de produtos no ícone do carrinho
-[Layouts: Indicador de produtos no ícone do carrinho](https://i.imgur.com/4X9z5Vy.png)
+![Layouts: Indicador de produtos no ícone do carrinho](https://i.imgur.com/4X9z5Vy.png)
 
 ##### Layouts: Carrinho de compras aberto
-[Layouts: Carrinho de compras aberto](https://i.imgur.com/CttkEV7.png)
+![Layouts: Carrinho de compras aberto](https://i.imgur.com/CttkEV7.png)
 
 ##### Layouts: Busca em tempo real
-[Layouts: Busca em tempo real](https://i.imgur.com/pRCrodL.png)
+![Layouts: Busca em tempo real](https://i.imgur.com/pRCrodL.png)
 
 #### Passos para executar
 
