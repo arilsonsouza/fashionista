@@ -1,31 +1,65 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import Icon from '@mdi/react'
+import { mdiShoppingOutline, mdiMagnify } from '@mdi/js'
 
 import './navbar.scss'
 
-export const Navbar = () => (
-  <header className='header'>
-  	<nav className='navbar'>
-  		<div className='container'>
-  		  <Link to='/' className='navbar__brand'>
-         Fashionista
-        </Link>
+import { sidebarActions } from '../../_actions'
 
-        <ul className='navbar__items'>
-          <li className='navbar__item'>
-            <button className='btn'>
-              <i className='fa fa-search'></i>
-            </button>
-          </li>
-          <li className='navbar__item'>
-            <button className='btn'>
-              <i className='fa fa-shopping-cart'></i>
-            	<span className='navbar__badge'>1</span>
-            </button>
+const Navbar = ({ dispatch }) => {
 
-          </li>
-        </ul>
-      </div>
-  	</nav>
-  </header>
-)
+  const handleAction = (action, sidebar) => dispatch(action(sidebar))
+
+  return (
+    <header className='header'>
+    	<nav className='navbar'>
+    		<div className='container'>
+    		  <Link to='/' className='navbar__brand'>
+           Fashionista
+          </Link>
+
+          <ul className='navbar__items'>
+            <li className='navbar__item'>
+              <button className='btn'
+                onClick={() => handleAction(sidebarActions.showSidebarCart, 'search')}
+              >
+                <Icon path={mdiMagnify}
+                  size={1}
+                  horizontal
+                  vertical
+                  rotate={180}
+                />
+              </button>
+            </li>
+            <li className='navbar__item'>
+              <button className='btn'
+                onClick={() => handleAction(sidebarActions.showSidebarCart, 'cart')}
+              >
+                <Icon path={mdiShoppingOutline}
+                  size={1}
+                  horizontal
+                  vertical
+                  rotate={180}
+                />
+              	<span className='navbar__badge'>1</span>
+              </button>
+
+            </li>
+          </ul>
+        </div>
+    	</nav>
+    </header>
+  )
+}
+
+
+const mapStateToProps = (state) => { 
+  const { sidebar } = state
+  return {
+    sidebar
+  }
+}
+
+export default connect(mapStateToProps)(Navbar) 

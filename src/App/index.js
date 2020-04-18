@@ -1,12 +1,12 @@
 import React, { useEffect } from 'react'
 import {
-  BrowserRouter as Router,
-  Route  
+  BrowserRouter as Router  
 } from 'react-router-dom'
-
 import { connect } from 'react-redux'
 
 import {Navbar} from '../_components'
+import { Sidebar } from '../_components'
+
 import './app.scss'
 import Routes from '../_routes'
 import { alertActions } from '../_actions'
@@ -21,7 +21,8 @@ function App({alert, dispatch}) {
     <>
       <Router>
         <Navbar/>
-        <div className='main'>
+        <Sidebar/>
+        <main className='main'>
           <div className='container'>
             <div className='row'>
               { alert.message &&
@@ -37,7 +38,7 @@ function App({alert, dispatch}) {
               <Routes/>
             </div>
           </div>
-        </div>
+        </main>
       </Router>
     </>
   )
