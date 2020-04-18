@@ -59,5 +59,10 @@ module.exports = {
         "no-useless-concat": "warn",
         "block-scoped-var": "error",
         "consistent-return": "error"
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
     }
 };
