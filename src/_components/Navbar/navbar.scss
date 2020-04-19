@@ -3,32 +3,21 @@
 @import '../../_assets/styles/_variables';
 
 .header {
-  width: 100%;
   padding-top: 15px;
   padding-bottom: 15px;
   background-color: $white;
   box-shadow: 0 1px 0 0 rgba(0, 0, 0, .06); 
 
   .navbar {
-    width: 100%;
-    display: flex;
-    .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
+    .container {            
       .navbar__brand {
         font-family: 'Playfair Display', serif;
         font-size: 1.5em; 
         transition: all .5s;
-        color: $grey;
-        &:hover {
-          color: $dark-grey;
-        }       
+        color: $dark-grey;       
       }
       
       .navbar__items {
-        display: flex;
         list-style-type: none;
 
         .navbar__item {

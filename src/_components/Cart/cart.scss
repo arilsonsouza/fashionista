@@ -1,0 +1,19 @@
+@import '../../_assets/styles/_variables';
+
+.cart {	
+	overflow-y: auto;
+	.cart__items {
+		flex: 1;	
+		.cart__item{
+			padding: 1em;
+		}
+	}			
+
+	.cart__price {
+		padding: 1em;
+		font-size: 1.3em;
+		font-weight: 600;	
+		background-color: #212429;	
+		color: $white;
+	}
+}

@@ -22,7 +22,7 @@ function App({alert, dispatch}) {
       <Router>
         <Navbar/>
         <Sidebar/>
-        <main className='main'>
+        <main className='main w-full'>
           <div className='container'>
             <div className='row'>
               { alert.message &&

@@ -12,12 +12,12 @@ import { sidebarActions } from '../../_actions'
 const Sidebar = ({ sidebar: { activeSidebar = null }, dispatch }) => {
 	
   return (
-  	<div className={`sidebar ${activeSidebar ? 'sidebar--open' : 'sidebar--close'}`}>
+  	<div className={`sidebar ${activeSidebar ? 'sidebar--open' : 'sidebar--close'} h-full flex`}>
   		<div className='sidebar__body-overlay'
 				 onClick={() => dispatch(sidebarActions.hideSideBar())}
   		></div>
-	    <div className='sidebar__content-wrapper'>
-	      <header className='sidebar__header'>
+	    <div className='sidebar__content-wrapper h-full flex flex-column'>
+	      <header className='sidebar__header flex'>
 	        <button className='sidebar__button'
 	          onClick={() => dispatch(sidebarActions.hideSideBar())}
 	        >
@@ -28,11 +28,11 @@ const Sidebar = ({ sidebar: { activeSidebar = null }, dispatch }) => {
 			        rotate={180}
 			       />
 	        </button>
-	        <div className='sidebar__title'>
-						Sacola (3)
+	        <div className='sidebar__title flex'>
+            { activeSidebar === 'cart' ? 'Sacola (3)' : 'Buscar Produtos'}
 	        </div>
 	      </header>
-	      <div className='sidebar__content'>
+	      <div className='sidebar__content w-full h-full'>
 	        { activeSidebar === 'cart' ? <Cart/> : <Search/>  }
 	      </div>
 	    </div>

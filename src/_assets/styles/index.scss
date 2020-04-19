@@ -23,10 +23,6 @@ body {
   max-width: 960px;
 }
 
-.main {
-  width: 100%;
-}
-
 .row::after {
   content: "";
   clear: both;
@@ -88,4 +84,36 @@ button {
 	box-shadow: none;
 	outline: none;
 	cursor: pointer;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.h-full {
+  height: 100%;
 }

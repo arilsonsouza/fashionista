@@ -13,14 +13,14 @@ const Navbar = ({ dispatch }) => {
   const handleAction = (action, sidebar) => dispatch(action(sidebar))
 
   return (
-    <header className='header'>
-    	<nav className='navbar'>
-    		<div className='container'>
+    <header className='header w-full'>
+    	<nav className='navbar w-full flex'>
+    		<div className='container flex justify-between items-center'>
     		  <Link to='/' className='navbar__brand'>
            Fashionista
           </Link>
 
-          <ul className='navbar__items'>
+          <ul className='navbar__items flex'>
             <li className='navbar__item'>
               <button className='btn'
                 onClick={() => handleAction(sidebarActions.showSidebarCart, 'search')}
