@@ -2,14 +2,15 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 import './card.scss'
-import { floatToCurrency } from '../../../_helpers'
+import { slugify } from '../../../_helpers'
 
 const CardProduct = ({ product }) => {
+  const productPath = `produto/${slugify(product.name, '-')}`
 
   return (
     <div className='w-full flex flex-column h-full card__product'>
       <div className='card__image flex-1 w-full h-full'>
-        <Link to={'produto/1452/detalhes'} className='w-full h-full flex justify-center items-center'>
+        <Link to={`${productPath}`} className='w-full h-full flex justify-center items-center'>
           {product.image ?
             <img 
               src={product.image} 
@@ -20,7 +21,7 @@ const CardProduct = ({ product }) => {
       </div>
 	
       <div className='card__body flex justify-center flex-column'>
-        <Link to={'produto/1452/detalhes'}>
+        <Link to={`${productPath}`}>
 					{product.name}
         </Link>
 				
