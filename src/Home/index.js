@@ -1,11 +1,37 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
 
-const Home = () => {
+import './home.scss'
+import { CardProduct } from '../_components'
+
+const Home = ({ products: { items, totalItems }, dispatch }) => {
+
   return (
-    <>
-      <h1>Fashionista</h1>
-    </>
+    <div className='flex flex-column w-full'>
+      <div className='flex'>
+        <div className='flex-1'>
+          <h4 className='products__count'>
+							{ totalItems } items
+          </h4>          
+        </div>
+      </div>
+
+      <div className='products flex flex-wrap'>
+        { items.map((product, index) => (
+          <div className='product__item' key={`${product.code_color}-${index}`}>
+            <CardProduct product={product}/>
+          </div>
+        ))}
+      </div>
+    </div>
   )
 }
 
-export default Home
+const mapStateToProps = (state) => {
+  const { products } = state
+  return {
+    products
+  }
+}
+
+export default connect(mapStateToProps)(Home)

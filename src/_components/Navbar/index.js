@@ -9,23 +9,26 @@ import './navbar.scss'
 import { sidebarActions } from '../../_actions'
 
 const Navbar = ({ dispatch }) => {
-
   const handleAction = (action, sidebar) => dispatch(action(sidebar))
 
   return (
-    <header className='header w-full'>
-    	<nav className='navbar w-full flex'>
-    		<div className='container flex justify-between items-center'>
-    		  <Link to='/' className='navbar__brand'>
-           Fashionista
+    <header className="header w-full">
+      <nav className="navbar w-full flex">
+        <div className="container flex justify-between items-center">
+          <Link to="/" className="navbar__brand">
+            Fashionista
           </Link>
 
-          <ul className='navbar__items flex'>
-            <li className='navbar__item'>
-              <button className='btn'
-                onClick={() => handleAction(sidebarActions.showSidebarCart, 'search')}
+          <ul className="navbar__items flex">
+            <li className="navbar__item">
+              <button
+                className="btn"
+                onClick={() =>
+                  handleAction(sidebarActions.showSidebarCart, 'search')
+                }
               >
-                <Icon path={mdiMagnify}
+                <Icon
+                  path={mdiMagnify}
                   size={1}
                   horizontal
                   vertical
@@ -33,33 +36,37 @@ const Navbar = ({ dispatch }) => {
                 />
               </button>
             </li>
-            <li className='navbar__item'>
-              <button className='btn'
-                onClick={() => handleAction(sidebarActions.showSidebarCart, 'cart')}
+            <li className="navbar__item">
+              <button
+                className="btn"
+                onClick={() =>
+                  handleAction(sidebarActions.showSidebarCart, 'cart')
+                }
               >
-                <Icon path={mdiShoppingOutline}
+                <Icon
+                  path={mdiShoppingOutline}
                   size={1}
                   horizontal
                   vertical
                   rotate={180}
                 />
-              	<span className='navbar__badge'>1</span>
+                <span className="navbar__badge flex items-center justify-center">
+                  1
+                </span>
               </button>
-
             </li>
           </ul>
         </div>
-    	</nav>
+      </nav>
     </header>
   )
 }
 
-
-const mapStateToProps = (state) => { 
+const mapStateToProps = (state) => {
   const { sidebar } = state
   return {
     sidebar
   }
 }
 
-export default connect(mapStateToProps)(Navbar) 
+export default connect(mapStateToProps)(Navbar)

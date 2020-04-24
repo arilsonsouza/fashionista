@@ -10,11 +10,12 @@ import { Sidebar } from '../_components'
 import './app.scss'
 import Routes from '../_routes'
 import { alertActions } from '../_actions'
+import { productActions } from '../_actions'
 
 function App({alert, dispatch}) {
 
-  useEffect(() => {
-    // dispatch(alertActions.success('Redux setup successfully!'))
+  useEffect(() => {        
+    dispatch(productActions.getProducts())    
   }, [])
 
   return (

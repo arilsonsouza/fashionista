@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+SC:400,600,700%7Csans-serif');
 @import './_variables';
 
 *,
@@ -9,7 +9,7 @@
 
 body {
   font-size: 14px;
-  font-family: 'Lato', sans-serif;
+  font-family:  'Noto Sans SC',sans-serif;
   color: $dark-grey;
   background-color: $bg-body;
 }
@@ -20,57 +20,9 @@ body {
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
-  max-width: 960px;
+  max-width: 1279px;
 }
 
-.row::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-[class*="col-"] {
-  float: left;
-  padding: 15px;
-}
-
-
-/* For mobile phones */
-[class*="col-"] {
-  width: 100%;
-}
-
-// Small devices (landscape phones, 576px and up)
-@media (min-width: 600px) {
-  .col-s-1 {width: 8.33%;}
-  .col-s-2 {width: 16.66%;}
-  .col-s-3 {width: 25%;}
-  .col-s-4 {width: 33.33%;}
-  .col-s-5 {width: 41.66%;}
-  .col-s-6 {width: 50%;}
-  .col-s-7 {width: 58.33%;}
-  .col-s-8 {width: 66.66%;}
-  .col-s-9 {width: 75%;}
-  .col-s-10 {width: 83.33%;}
-  .col-s-11 {width: 91.66%;}
-  .col-s-12 {width: 100%;}
-}
-
-// Medium devices (tablets, 768px and up)
-@media (min-width: 768px) {
-  .col-1 {width: 8.33%;}
-  .col-2 {width: 16.66%;}
-  .col-3 {width: 25%;}
-  .col-4 {width: 33.33%;}
-  .col-5 {width: 41.66%;}
-  .col-6 {width: 50%;}
-  .col-7 {width: 58.33%;}
-  .col-8 {width: 66.66%;}
-  .col-9 {width: 75%;}
-  .col-10 {width: 83.33%;}
-  .col-11 {width: 91.66%;}
-  .col-12 {width: 100%;}
-}
 
 a {
 	text-decoration: none;
@@ -88,6 +40,14 @@ button {
 
 .flex {
   display: flex;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
 }
 
 .flex-column {

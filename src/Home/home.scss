@@ -1,0 +1,37 @@
+@import '../_assets/styles/_variables';
+
+.products__count {
+	color: $grey;
+	font-size: 1em;
+	font-weight: 500;
+}
+
+.products {
+	.product__item {
+		border-radius: 8px;
+		min-height: 390px;		
+	  width: 49%;	  
+	  margin: 0 1px 10px 1px;
+	}
+
+	@media only screen and (max-width: 576px) {
+		justify-content: center;		
+		.product__item {
+			width: 70%;
+		}
+	}
+
+	/* Medium devices (landscape tablets, 768px and up) */
+	@media only screen and (min-width: 768px) {
+		.product__item {
+			width: 33%;			
+		}
+	}
+
+	/* Large devices (laptops/desktops, 992px and up) */
+	@media only screen and (min-width: 992px) {
+		.product__item {
+			width: 24.5%;
+		}
+	}
+}
