@@ -40,7 +40,7 @@ const ProductDetails = ({ products: { items, totalItems, product }, dispatch }) 
                 {product.actual_price}
               </span>
               <span className='product__price product__price--installments'>
-                {product.installments}
+                em até {product.installments}
               </span>
             </div>
             <div className='product__sizes flex flex-column'>

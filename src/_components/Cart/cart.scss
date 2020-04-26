@@ -16,4 +16,12 @@
 		background-color: #212429;	
 		color: $white;
 	}
+
+	.empty__cart {
+		span {
+			color: $grey;
+			font-size: 1.2em;
+			font-weight: 500;
+		}
+	}
 }

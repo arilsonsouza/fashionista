@@ -11,22 +11,21 @@ const Search = ({ products: { items } }) => {
   const [resultsCount, setresultsCount] = useState(0)
 
   useEffect(() => {
-    const results = items.filter(
-      (product) =>
-        product.name.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1
-    )
-
-    setresultsCount(results.length)
-    setsearchedProducts(results)
-  }, [searchQuery])
-
-  const handleChange = debounce((query) => {
-    if (query.length >= 3) {
-      setsearchQuery(query)
-    } else if (!query) {
+    if (searchQuery.length >= 3) {      
+      const results = items.filter(
+        (product) =>
+          product.name.toLowerCase().indexOf(searchQuery.toLowerCase()) !== -1
+      )
+      setresultsCount(results.length)
+      setsearchedProducts(results)
+    } else if (!searchQuery) {
       setsearchedProducts([])
       setresultsCount(0)
     }
+  }, [searchQuery])
+
+  const handleChange = debounce((query) => {    
+    setsearchQuery(query)   
   }, 500)
 
   return (

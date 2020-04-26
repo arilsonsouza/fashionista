@@ -10,7 +10,7 @@ import { sidebarActions } from '../../_actions'
 
 const Navbar = ({ cartItems, dispatch }) => {
   const handleAction = (action, sidebar) => dispatch(action(sidebar))
-
+  
   return (
     <header className="header w-full">
       <nav className="navbar w-full flex">
@@ -49,12 +49,11 @@ const Navbar = ({ cartItems, dispatch }) => {
                   horizontal
                   vertical
                   rotate={180}
-                />
-                { cartItems > 0 && 
-                  <span className="navbar__badge flex items-center justify-center">
-                    {cartItems}
-                  </span>
-                }
+                />                
+                <span className="navbar__badge flex items-center justify-center">
+                  {cartItems}
+                </span>
+                
               </button>
             </li>
           </ul>

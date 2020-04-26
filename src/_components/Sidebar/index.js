@@ -9,7 +9,7 @@ import { Search, Cart } from '../'
 
 import { sidebarActions } from '../../_actions'
 
-const Sidebar = ({ sidebar: { activeSidebar = null }, dispatch }) => {
+const Sidebar = ({ sidebar: { activeSidebar = null }, cartItems, dispatch }) => {
 	
   return (
   	<div className={`sidebar ${activeSidebar ? 'sidebar--open' : 'sidebar--close'} h-full flex`}>
@@ -29,7 +29,7 @@ const Sidebar = ({ sidebar: { activeSidebar = null }, dispatch }) => {
 			       />
 	        </button>
 	        <div className='sidebar__title flex'>
-            { activeSidebar === 'cart' ? 'Sacola (3)' : 'Buscar Produtos'}
+            { activeSidebar === 'cart' ? `Sacola (${cartItems})` : 'Buscar Produtos'}
 	        </div>
 	      </header>
 	      <div className='sidebar__content w-full h-full'>
@@ -42,9 +42,10 @@ const Sidebar = ({ sidebar: { activeSidebar = null }, dispatch }) => {
 
 
 const mapStateToProps = (state) => { 
-  const { sidebar } = state
+  const { sidebar, cart: { count } } = state
   return {
-    sidebar
+    sidebar,
+		cartItems: count
   }
 }
 

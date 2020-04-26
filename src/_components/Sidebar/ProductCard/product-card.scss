@@ -31,8 +31,13 @@
           color: $black;
         }
         .product__action {
-          padding: 1.3px;
+          padding: .3em;
           border: 1px solid $black;
+          
+          &:disabled {
+            cursor: default;
+          }
+          
           &:not(:first-child) {
             margin: 0 1em;
           }

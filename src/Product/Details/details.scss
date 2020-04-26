@@ -4,7 +4,7 @@
 .product__wrapper {
   flex-wrap: wrap;
   .product__image {
-    width: 50%;
+    width: 100%;
     margin: 1em 0;
     img {
       width: 100%;
@@ -14,7 +14,7 @@
   .product__content {
     flex-direction: column;
     display:flex;
-    width: 50%;
+    width: 100%;
     padding: 0 1.6em;
 
     .product__name {
@@ -94,8 +94,9 @@
     }
 
     .product__actions {
-      .product__action__add-to-cart {
-        width: 50%;
+      position: relative;
+      .product__action__add-to-cart {        
+        width: 100%;
         background-color: #212529;
         border-radius: 4px;
         border: none;
@@ -142,6 +143,23 @@
             opacity: 0;
             transform: scale(1);
           }
+        }
+      }
+    }
+  }
+
+
+  @media screen and (min-width: 950px) {
+    .product__image {
+      width: 50%;
+    }
+
+    .product__content{
+      width: 50%; 
+      
+      .product__actions {
+        .product__action__add-to-cart {
+          width: 50%;
         }
       }
     }
