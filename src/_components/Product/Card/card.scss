@@ -7,13 +7,7 @@
 	position: relative;
 
 	.card__image {
-		background-color: $white;
-
-		.no__image {
-			color: $grey;
-			font-weight: 500;
-			font-size: 1em;
-		}
+		background-color: $white;		
 		
 		img {
 			width: 100%;

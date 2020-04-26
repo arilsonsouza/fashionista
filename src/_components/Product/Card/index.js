@@ -1,16 +1,22 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 import './card.scss'
 import { slugify } from '../../../_helpers'
+import { productActions } from '../../../_actions'
 
-const CardProduct = ({ product }) => {
+const CardProduct = ({ product, dispatch }) => {
   const productPath = `produto/${slugify(product.name, '-')}`
+
+  const setProductDetails = () => dispatch(productActions.setProductDetails(product))
 
   return (
     <div className='w-full flex flex-column h-full card__product'>
       <div className='card__image flex-1 w-full h-full'>
-        <Link to={`${productPath}`} className='w-full h-full flex justify-center items-center'>
+        <Link 
+          onClick={setProductDetails}
+          to={`${productPath}`} className='w-full h-full flex justify-center items-center'>
           {product.image ?
             <img 
               src={product.image} 
@@ -21,7 +27,9 @@ const CardProduct = ({ product }) => {
       </div>
 	
       <div className='card__body flex justify-center flex-column'>
-        <Link to={`${productPath}`}>
+        <Link 
+          onClick={setProductDetails}
+          to={`${productPath}`}>
 					{product.name}
         </Link>
 				
@@ -41,4 +49,9 @@ const CardProduct = ({ product }) => {
   )
 }
 
-export default CardProduct
+const mapStateToProps = (state) => {
+  return {    
+  }
+}
+
+export default connect(mapStateToProps)(CardProduct)

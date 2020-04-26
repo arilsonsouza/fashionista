@@ -9,6 +9,9 @@ const getProducts = () => {
   }  
 }
 
+const setProductDetails = (product) => ({ type: productConstants.SET_PRODUCT_DETAILS, product })
+
 export const productActions = {
-  getProducts
+  getProducts,
+  setProductDetails
 }

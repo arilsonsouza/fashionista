@@ -1,14 +1,23 @@
 import { productConstants } from '../_constants'
 
-export const products = (state = {items: [], totalItems: 0}, action) => {
+let product = JSON.parse(localStorage.getItem('product'))
+const initialState = {items: [], totalItems: 0, product}
+
+export const products = (state = initialState, action) => {
   switch (action.type) {
-  case productConstants.FETCH_PRODUCTS:
-    console.log('FETCH_PRODUCTS: ', action)    
+  case productConstants.FETCH_PRODUCTS:    
     return {
-      type: 'fetch-products',
+      ...state,      
       items: action.products,
       totalItems: action.totalItems
     } 
+  case productConstants.SET_PRODUCT_DETAILS:
+    const { product } = action
+    localStorage.setItem('product', JSON.stringify(product))
+    return {
+      ...state,
+      product
+    }
   default:
     return state
   }

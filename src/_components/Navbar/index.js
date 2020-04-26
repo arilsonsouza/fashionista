@@ -8,7 +8,7 @@ import './navbar.scss'
 
 import { sidebarActions } from '../../_actions'
 
-const Navbar = ({ dispatch }) => {
+const Navbar = ({ cartItems, dispatch }) => {
   const handleAction = (action, sidebar) => dispatch(action(sidebar))
 
   return (
@@ -50,9 +50,11 @@ const Navbar = ({ dispatch }) => {
                   vertical
                   rotate={180}
                 />
-                <span className="navbar__badge flex items-center justify-center">
-                  1
-                </span>
+                { cartItems > 0 && 
+                  <span className="navbar__badge flex items-center justify-center">
+                    {cartItems}
+                  </span>
+                }
               </button>
             </li>
           </ul>
@@ -63,9 +65,10 @@ const Navbar = ({ dispatch }) => {
 }
 
 const mapStateToProps = (state) => {
-  const { sidebar } = state
+  const { sidebar, cart: { count } } = state
   return {
-    sidebar
+    sidebar,
+    cartItems: count
   }
 }
 

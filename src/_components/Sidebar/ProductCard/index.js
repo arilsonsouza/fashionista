@@ -1,20 +1,29 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import Icon from '@mdi/react'
 import { mdiPlus, mdiMinus } from '@mdi/js'
 
 import './product-card.scss'
-import { floatToCurrency } from '../../../_helpers'
+import { slugify } from '../../../_helpers'
 
-const ProductCard = ({ sidebar: { activeSidebar = null }, dispatch }) => {	
+const ProductCard = ({ product, sidebar: { activeSidebar = null }, dispatch }) => {	
+  const productPath = `/produto/${slugify(product.name, '-')}`
+
   return (
-    <div className='product w-full flex'>
-      <div className='product__image'>
-        <a href='#' className='w-full'>
-          <img className='w-full h-full' src='https://ph-cdn3.ecosweb.com.br/imagens01/foto/moda-feminina/vestido-curto/vestido-bordo-assimetrico-com-alcas_277169_600_1.jpg' alt=''/>
-        </a>
+    <div className='product w-full h-full flex'>
+      <div className='product__image h-full'>
+        <Link to={productPath} className='w-full h-full flex justify-center items-center'>        
+          { product.image ? <img 
+            className='w-full h-full' 
+            src={product.image} 
+            alt={product.name}
+            title={product.name}/>
+            : <span className='no__image'>Imagem indisponível</span>
+          }
+        </Link>
 
-        { activeSidebar == 'cart' && 
+        { activeSidebar === 'cart' && 
 	        <button className='product__remove-btn'>
 						Remover item
 	        </button>
@@ -23,14 +32,16 @@ const ProductCard = ({ sidebar: { activeSidebar = null }, dispatch }) => {
 
       <div className='product__details flex'>
         <div className='product__description flex flex-column'>
-          <a href='#'>
-            <h4>vestido bordo assimetrico</h4>
-          </a>
-          <span className='produc-size'>
-						Tam: PP
-          </span>
+          <Link to={productPath} className='w-full'> 
+            <h4>{product.name}</h4>
+          </Link>
+          { activeSidebar === 'cart' && 
+            <span className='produc-size'>
+              Tam: PP
+            </span> 
+          }
 
-          { activeSidebar == 'cart' && 
+          { activeSidebar === 'cart' && 
 	          <div className='product__actions flex items-center'>
 	            <button className='product__action flex items-center'>
 	              <Icon path={mdiMinus}
@@ -54,8 +65,8 @@ const ProductCard = ({ sidebar: { activeSidebar = null }, dispatch }) => {
         </div>
 
         <div className='product__cost flex flex-column'>
-          <span className='product__price'>{floatToCurrency(159.90)}</span>
-          <span className='product__parcels'>3x {floatToCurrency(53.30)}</span>
+          <span className='product__price'>{product.actual_price}</span>
+          {product.installments && <span className='product__parcels'>{product.installments}</span> }
         </div>
       </div>
     </div>
