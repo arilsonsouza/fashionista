@@ -9,10 +9,9 @@ import { Sidebar } from '../_components'
 
 import './app.scss'
 import Routes from '../_routes'
-import { alertActions } from '../_actions'
 import { productActions } from '../_actions'
 
-function App({alert, dispatch}) {
+function App({ dispatch }) {
 
   useEffect(() => {        
     dispatch(productActions.getProducts())    
@@ -26,16 +25,6 @@ function App({alert, dispatch}) {
         <main className='main w-full'>
           <div className='container'>
             <div className='row'>
-              { alert.message &&
-                <div className='col-12'>
-                  <div className={`alert ${alert.type}`}>
-                    {alert.message}
-                  </div>
-                </div>
-              }
-            </div>
-
-            <div className='row'>
               <Routes/>
             </div>
           </div>
@@ -46,9 +35,7 @@ function App({alert, dispatch}) {
 }
 
 const mapStateToProps = (state) => {
-  const { alert } = state
-  return {
-    alert
+  return {    
   }
 }
 

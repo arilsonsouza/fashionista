@@ -14,8 +14,7 @@ const Cart = ({ items }) => {
   useEffect(() => {
     const total = items.map(item => currencyToFloat(item.actual_price)).reduce((a,b) => a + b, 0)
     setTotalPrice(total)
-
-    console.log('useEffect items: ', items)
+    
     setGroupedItems(groupBySize(items))    
   }, [items])
 

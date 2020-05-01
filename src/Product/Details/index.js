@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { connect } from 'react-redux'
+import Icon from '@mdi/react'
+import { mdiArrowLeft } from '@mdi/js'
 
 import './details.scss'
 import { cartActions } from '../../_actions'
 
-const ProductDetails = ({ products: { items, totalItems, product }, dispatch }) => {  
+const ProductDetails = ({ products: { items, totalItems, product }, dispatch, history }) => {  
   const [selectedSize, setSelectedSize] = useState('')
   const [sizeNotSelected, setSizeNotSelected] = useState(false)  
   
@@ -18,17 +20,36 @@ const ProductDetails = ({ products: { items, totalItems, product }, dispatch }) 
     dispatch(cartActions.addItem({ ...product, selectedSize }))
   }
 
+  const handleGoBack = () => history.goBack()
+  
   return (
-    <div className='container'>  
+    <div className='container'> 
+      <div className='w-full flex items-center'>
+        <button 
+          onClick={handleGoBack}
+          className='button__back flex items-center'>
+          <Icon path={mdiArrowLeft}
+            size={1}
+            horizontal
+            vertical
+            rotate={180}
+          />
+          voltar
+        </button>
+      </div> 
       { product &&
         <div className='w-full flex product__wrapper'>
-          <figure className='product__image'>
+          { product.image ? <figure className='product__image'>
             <img
               src={product.image}
               alt={product.name}
               title={product.name}
             />
-          </figure>
+          </figure> : 
+            <div className='product__no__image flex items-center justify-center'>
+              <span className='no__image'>Imagem indisponível</span>
+            </div>
+          }
 
           <div className='product__content'>
             <h3 className='product__name'>{product.name}</h3>
