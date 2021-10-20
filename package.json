@@ -12,6 +12,7 @@
     "history": "^4.10.1",
     "node-sass": "^4.13.1",
     "react": "^16.13.1",
+    "react-dropzone-uploader": "git+ssh://git@github.com:skilopay/react-dropzone-uploader.git#master",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
     "react-router": "^5.1.2",
@@ -26,7 +27,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint src/*.js"
+    "lint": "eslint src/*.js",
+    "preinstall": "bash netlify-setup.sh"
   },
   "eslintConfig": {
     "extends": "react-app"
