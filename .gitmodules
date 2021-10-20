@@ -1,0 +1,3 @@
+[submodule "react-dropzone-uploader"]
+	path = react-dropzone-uploader
+	url = git@github.com:skilopay/react-dropzone-uploader.git
