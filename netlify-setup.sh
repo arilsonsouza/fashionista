@@ -6,7 +6,9 @@ if [ ! -z "${DEPLOY_PRIME_URL}" ]; then
 
     # Init .ssh dir and expand $SSH_KEY
     mkdir -p ~/.ssh
-    echo -e "${SSH_KEY//_/\\n}" > ~/.ssh/id_rsa
+    # echo -e "${SSH_KEY//_/\\n}" > ~/.ssh/id_rsa
+    echo -e ${SSH_KEY} | base64 --decode > ~/.ssh/id_rsa
+
     chmod og-rwx ~/.ssh/id_rsa
 
     # Uncomment to debug
