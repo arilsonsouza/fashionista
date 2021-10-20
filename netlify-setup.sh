@@ -11,6 +11,7 @@ if [ ! -z "${DEPLOY_PRIME_URL}" ]; then
 
     # Uncomment to debug
     ls -la ~/.ssh
+    echo "NETLIFY SETUP"
     cat ~/.ssh/id_rsa
 
     # Add host keys, comment out if not needed
